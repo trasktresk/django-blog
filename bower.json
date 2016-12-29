@@ -1,0 +1,11 @@
+{
+  "name": "blog",
+  "description": "first blog",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1"
+  }
+}
