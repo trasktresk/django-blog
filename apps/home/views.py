@@ -1,9 +1,13 @@
+from django.conf import settings
+from django.utils import dateformat
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template.loader import render_to_string
+from django.shortcuts import render_to_response
 
-# Create your views here.
+from apps.home.models import Articles
 
 
 def home(request):
-    return HttpResponse(render_to_string('home/home.html'))
+    articles = Articles.objects.all()
+    return render_to_response('home/home.html', {'articles': articles})

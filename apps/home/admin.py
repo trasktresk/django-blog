@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Categories
+from .models import Articles
+
+admin.site.register([Categories, Articles])

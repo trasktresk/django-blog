@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+     <div class="article__item">
+         <div class="row">
+            <div class="col-xs-12">
+                <h1 class="article__header">{{ article.name }}</h1>
+                <p class="article__text">{{ article.text }}</p>
+                <p class="article__date text-right">{{ article.create_date }}</p>
+            </div>
+         </div>
+     </div>
+    </div>
+{% endblock %}

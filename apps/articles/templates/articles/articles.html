@@ -7,7 +7,7 @@
          <div class="article__item">
              <div class="row">
                 <div class="col-xs-12">
-                    <a href="#" class="article__header">{{ article.name }}</a>
+                    <a href="{% url 'articles:articles' %}{{ article.id }}/" class="article__header">{{ article.name }}</a>
                     <p class="article__text">{{ article.short_text }}</p>
                     <p class="article__date text-right">{{ article.create_date }}</p>
                 </div>

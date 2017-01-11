@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'compressor',
+
     'apps.home',
+    'apps.articles',
 ]
 
 MIDDLEWARE = [
@@ -109,9 +111,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'Europe/Moscow'
+DATE_FORMAT = 'j E Y'
 
 USE_I18N = True
 
@@ -119,6 +122,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+INTERNAL_IPS = ['127.0.0.1']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
@@ -140,6 +144,12 @@ COMPRESS_PRECOMPILERS = [
                      '--source-map-less-inline --source-map-map-inline'
     ),
 ]
+
+COMPRESS_OFFLINE = False
+COMPRESS_OFFLINE_CONTEXT = {
+    'STATIC_URL': STATIC_URL,
+    'debug': False
+}
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
