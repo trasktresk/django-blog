@@ -16,8 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from apps.home import views
+from .views import HomeView
 
 urlpatterns = [
-    url(r'^$', views.home),
+    url(r'^$', HomeView.as_view()),
 ]

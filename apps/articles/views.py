@@ -4,19 +4,23 @@ from django.utils import dateformat
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.template.loader import render_to_string
-from django.shortcuts import render_to_response
+from django.shortcuts import render
+from django.views import View
 
-from apps.home.models import Articles
+from .models import Articles
 
 
-def show_articles(request):
+class ArticlesView(View):
     articles = Articles.objects.all()
-    return render_to_response('articles/articles.html', {'articles': articles})
+
+    def get(self, request):
+        return render(request, 'articles/articles.html', {'articles': self.articles})
 
 
-def show_article(request, article_id):
-    try:
-        article = Articles.objects.get(id=article_id)
-        return render_to_response('articles/article.html', {'article': article})
-    except ObjectDoesNotExist:
-        raise Http404
+class ArticleView(View):
+    def get(self, request, article_id):
+        try:
+            article = Articles.objects.get(id=article_id)
+            return render(request, 'articles/article.html', {'article': article})
+        except ObjectDoesNotExist:
+            raise Http404

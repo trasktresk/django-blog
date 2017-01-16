@@ -3,11 +3,12 @@ from django.utils import dateformat
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template.loader import render_to_string
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 
-from apps.home.models import Articles
+from apps.articles.models import Articles
+from apps.articles.views import ArticlesView
 
 
-def home(request):
-    articles = Articles.objects.all()
-    return render_to_response('home/home.html', {'articles': articles})
+class HomeView(ArticlesView):
+    def get(self, request):
+        return render(request, 'home/home.html', {'articles': self.articles})

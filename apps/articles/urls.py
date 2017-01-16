@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 
-from apps.articles import views
+from .views import ArticlesView, ArticleView
 
 urlpatterns = [
-    url(r'^$', views.show_articles, name='articles'),
-    url(r'^(?P<article_id>\d+)/$', views.show_article),
+    url(r'^$', ArticlesView.as_view(), name='articles'),
+    url(r'^(?P<article_id>\d+)/$', ArticleView.as_view()),
 ]

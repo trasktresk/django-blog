@@ -4,6 +4,14 @@
     <div class="container">
      <div class="article__item">
          <div class="row">
+             <div class="col-xs-12">
+                 <div class="page__goback">
+                     <span class="glyphicon glyphicon-chevron-left glyphicon-big"></span>
+                     <a href="{% url 'articles:articles' %}">К списку статей</a>
+                 </div>
+             </div>
+         </div>
+         <div class="row">
             <div class="col-xs-12">
                 <h1 class="article__header">{{ article.name }}</h1>
                 <p class="article__text">{{ article.text }}</p>
